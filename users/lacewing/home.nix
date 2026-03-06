@@ -277,6 +277,10 @@ in {
       zrc = "$EDITOR $ZSH_CONFIG_DIR/zshrc";
       nrc = "$EDITOR $XDG_CONFIG_HOME/nvim/init.lua";
 
+      men = "tldr";
+      # shScripts
+      human = "tldr_fzf_preview";
+
       cd = "z";
       # shScripts
       cdgt = "cd_git_top";
