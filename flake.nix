@@ -36,6 +36,10 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+    };
   };
 
   outputs = inputs @ {
@@ -50,9 +54,9 @@
       inherit nixpkgs overlays inputs;
     };
 
-    overlays = [
+    overlays = with inputs; [
       (final: prev: {
-        # zls = nixpkgs-old.legacyPackages.${prev.stdenv.hostPlatform.system}.zls;
+        zjstatus = zjstatus.packages.${prev.pkgs.stdenv.hostPlatform.system}.default;
       })
     ];
   in {

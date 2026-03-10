@@ -1,5 +1,40 @@
 theme "kanagawa"
 
+plugins {
+  sb location="file:$XDG_CONFIG_HOME/zellij/plugins/zjstatus.wasm" {
+    format_left   " #[fg=green]{session} #[]{mode} "
+    format_center "#[fg=green]{tabs}"
+
+    mode_normal     "#[fg=green]NOR"
+    mode_locked     "LCK"
+    mode_tmux       "TMX"
+    mode_rename_pane "RNP"
+    mode_rename_tab  "RNT"
+
+    tab_normal            "#[fg=bright_green]{index} #[fg=green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+    tab_normal_fullscreen "#[fg=bright_green]{index} #[fg=green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+    tab_normal_sync       "#[fg=bright_green]{index} #[fg=green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}{sync_indicator} "
+
+    tab_active            "#[fg=bright_green]{index} #[]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+    tab_active_fullscreen "#[fg=bright_green]{index} #[]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+    tab_active_sync       "#[fg=bright_green]{index} #[]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+
+    tab_rename            "#[fg=bright_green]{index} #[fg=yellow]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+
+    tab_sync_indicator        "<>"
+    tab_fullscreen_indicator  "[]"
+    tab_floating_indicator    "()"
+
+    tab_separator " "
+
+    tab_truncate_start_format "#[fg=yellow]<+{count} "
+    tab_truncate_end_format  " #[fg=yellow]+{count}>"
+  }
+}
+
+// req: zjstatus
+pane_frames false
+
 keybinds clear-defaults=true {
   shared_except "normal" {
     // Mode
@@ -72,7 +107,7 @@ keybinds clear-defaults=true {
 
   locked {
     // Mode
-    bind "g" { SwitchToMode "normal"; }
+    bind "Ctrl g" { SwitchToMode "normal"; }
   }
 }
 

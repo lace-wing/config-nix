@@ -7,7 +7,7 @@ font-family-bold = MonaspiceNe NF
 font-family-italic = MonaspiceRn NF
 font-family-bold-italic = MonaspiceXe NF
 
-font-size = 15
+font-size = 16
 
 # neat dark
 # theme = Nvim Dark

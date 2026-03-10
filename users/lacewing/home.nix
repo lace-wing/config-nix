@@ -39,7 +39,6 @@ in {
       tinymist
       dotnet-sdk
       roslyn-ls
-      # fsharp
       fsautocomplete
       fantomas
       zig
@@ -47,8 +46,6 @@ in {
       nodejs
       go
       harper
-      ## hm ##
-      # nu # ls included
 
       ### Lib ###
 
@@ -67,25 +64,9 @@ in {
       imagemagick
       poppler-utils
       giac
-      ## hm ##
-      # sketchybar
-      # aerospace
-      # zoxide
-      # carapace
-      # git
-      # gh
-      # nvim
-      # bash
-      # zsh
-      # direnv
-      # gpg
-      # pandoc
+      zjstatus
 
       ### GUI App ###
-      ## hm ##
-      # ghostty
-      ## brew ##
-      # calibre
     ]
     ++ [
       initApp
@@ -144,11 +125,14 @@ in {
   };
 
   xdg.configFile = {
-    "ghostty/config".source = ./ghostty/config;
-    "ghostty/shaders/".source = ../../mods/ghostty/shaders;
+    "ghostty/".source = ./ghostty;
     "aerospace/".source = ./aerospace;
     "skhd/".source = ./skhd;
-    "zellij/".source = ./zellij;
+    "zellij/" = {
+      source = ./zellij;
+      recursive = true;
+    };
+    "zellij/plugins/zjstatus.wasm".source = "${pkgs.zjstatus}/bin/zjstatus.wasm";
   };
 
   #---------------------------------------------------------------------
@@ -161,7 +145,7 @@ in {
     enable = isLinux;
     pinentry.package = pkgs.pinentry-tty;
 
-    # cache the keys forever so we don't get asked for a password
+    # Cache the keys forever so we don't get asked for a password
     defaultCacheTtl = 31536000;
     maxCacheTtl = 31536000;
   };
@@ -236,7 +220,7 @@ in {
     installVimSyntax = true;
     package =
       if isDarwin
-      then pkgs.ghostty-bin # nix does not support Swift 6 and XCode build env yet.
+      then pkgs.ghostty-bin # Nix does not support Swift 6 and Xcode build env yet.
       else pkgs.ghostty;
   };
 
@@ -250,8 +234,7 @@ in {
 
   programs.aerospace = {
     enable = true;
-    # xdg
-    # settings =
+    # settings = xdg.configFile
   };
 
   # Make cursor not tiny on HiDPI screens
@@ -266,7 +249,7 @@ in {
   # Aliases
   #---------------------------------------------------------------------
 
-  # Unix and POSIX
+  # UNIX and POSIX
   home.shellAliases =
     {
       l = "ls -o";
@@ -278,23 +261,20 @@ in {
       nrc = "$EDITOR $XDG_CONFIG_HOME/nvim/init.lua";
 
       men = "tldr";
-      # shScripts
       human = "tldr_fzf_preview";
 
       cd = "z";
-      # shScripts
       cdgt = "cd_git_top";
 
       v = "$EDITOR";
-      #shScripts
       vv = "fzf_editor";
 
+      zl = "zellij";
       za = "zellij action";
       zz = "zellij attach --create";
-      zm = "zellij attach --create main";
-      zw = "zellij attach --create work";
-      # shScripts
-      zu = "zellij_session_layout uni";
+      zm = "zellij attach --create Main";
+      zw = "zellij attach --create Work";
+      zu = "zellij_session_layout Uni";
     }
     // (
       if isDarwin
