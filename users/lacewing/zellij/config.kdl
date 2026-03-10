@@ -6,7 +6,7 @@ plugins {
     format_center "#[fg=green]{tabs}"
 
     mode_normal     "#[fg=green]NOR"
-    mode_locked     "LCK"
+    mode_locked     "#[fg=bright_red]VER"
     mode_tmux       "TMX"
     mode_rename_pane "RNP"
     mode_rename_tab  "RNT"
@@ -36,14 +36,14 @@ plugins {
 pane_frames false
 
 keybinds clear-defaults=true {
-  shared_except "normal" {
+  shared_except "normal" "locked" {
     // Mode
     bind "Esc" { SwitchToMode "normal"; }
   }
 
-  normal {
+  shared_except "locked" {
     // Mode
-    bind "Ctrl a" { SwitchToMode "tmux"; }
+    bind "Ctrl g" { SwitchToMode "locked"; }
   }
 
   shared_among "renamepane" "renametab" {
@@ -103,6 +103,30 @@ keybinds clear-defaults=true {
 
     // Input
     bind "Ctrl a" { Write 2; SwitchToMode "normal"; }
+  }
+
+  normal {
+    // Mode
+    bind "Ctrl a" { SwitchToMode "tmux"; }
+
+    // Pane
+    bind "Alt h" { MoveFocus "left"; }
+    bind "Alt l" { MoveFocus "right"; }
+    bind "Alt j" { MoveFocus "down"; }
+    bind "Alt k" { MoveFocus "up"; }
+
+    // Tab
+    bind "Alt n" { GoToNextTab; }
+    bind "Alt p" { GoToPreviousTab; }
+    bind "Alt 1" { GoToTab 1; }
+    bind "Alt 2" { GoToTab 2; }
+    bind "Alt 3" { GoToTab 3; }
+    bind "Alt 4" { GoToTab 4; }
+    bind "Alt 5" { GoToTab 5; }
+    bind "Alt 6" { GoToTab 6; }
+    bind "Alt 7" { GoToTab 7; }
+    bind "Alt 8" { GoToTab 8; }
+    bind "Alt 9" { GoToTab 9; }
   }
 
   locked {

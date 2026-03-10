@@ -6,7 +6,8 @@
 .define as_ws : aerospace workspace {{1}}
 .define as_mn_ws : aerospace move-node-to-workspace {{1}} && aerospace workspace {{1}}
 
-normal < cmd - r : aerospace reload-config
+# config
+normal < cmd + shift - r : aerospace reload-config
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 # 0x2C - slash
@@ -42,27 +43,27 @@ normal < cmd + shift - l : aerospace join-with right
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 # 0x1B - minus
-normal < 0x1B : aerospace resize smart -50
+normal < 0x1B : aerospace resize smart -64
 # 0x18 - equal
-normal < 0x18 : aerospace resize smart +50
+normal < 0x18 : aerospace resize smart +64
+# balance sizes
+normal < shift - 0x18 : aerospace balance-sizes
 # reset layout
-normal < r : aerospace flatten-workspace-tree
+normal < shift - 0x1B : aerospace flatten-workspace-tree
 
 # maximize and fullscreen
 cmd + shift - f : aerospace fullscreen
 cmd + ctrl - f : aerospace macos-native-fullscreen
-normal < f : aerospace fullscreen
-normal < shift - f : aerospace macos-native-fullscreen
-
-normal < x : aerospace close
-normal < shift - x : aerospace close-all-windows-but-current
+normal < shift - f : aerospace fullscreen
+normal < ctrl - f : aerospace macos-native-fullscreen
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-default, normal, verbatim < cmd - tab : aerospace workspace-back-and-forth
+cmd - tab : aerospace workspace-back-and-forth
+normal < tab : aerospace workspace-back-and-forth
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-# alt - b : aerospace workspace prev --wrap-around
-# alt - n : aerospace workspace next --wrap-around
+cmd - p : aerospace workspace prev --wrap-around
+cmd - n : aerospace workspace next --wrap-around
 cmd - 1 : @as_ws("1")
 cmd - 2 : @as_ws("2")
 cmd - 3 : @as_ws("3")
@@ -73,6 +74,8 @@ cmd - 7 : @as_ws("7")
 cmd - 8 : @as_ws("8")
 cmd - 9 : @as_ws("9")
 
+normal < p : aerospace workspace prev --wrap-around
+normal < n : aerospace workspace next --wrap-around
 normal < 1 : @as_ws("1")
 normal < 2 : @as_ws("2")
 normal < 3 : @as_ws("3")
@@ -84,6 +87,8 @@ normal < 8 : @as_ws("8")
 normal < 9 : @as_ws("9")
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+shift + cmd - p : aerospace move-node-to-workspace prev --wrap-around && aerospace workspace prev --wrap-around
+shift + cmd - n : aerospace move-node-to-workspace next --wrap-around && aerospace workspace next --wrap-around
 shift + cmd - 1 : @as_mn_ws("1")
 shift + cmd - 2 : @as_mn_ws("2")
 shift + cmd - 3 : @as_mn_ws("3")
@@ -94,6 +99,8 @@ shift + cmd - 7 : @as_mn_ws("7")
 shift + cmd - 8 : @as_mn_ws("8")
 shift + cmd - 9 : @as_mn_ws("9")
 
+normal < cmd - p : aerospace move-node-to-workspace prev --wrap-around && aerospace workspace prev --wrap-around
+normal < cmd - n : aerospace move-node-to-workspace next --wrap-around && aerospace workspace next --wrap-around
 normal < cmd - 1 : @as_mn_ws("1")
 normal < cmd - 2 : @as_mn_ws("2")
 normal < cmd - 3 : @as_mn_ws("3")
@@ -125,3 +132,4 @@ normal < shift + cmd - down : aerospace move-workspace-to-monitor --wrap-around 
 normal < shift + cmd - up : aerospace move-workspace-to-monitor --wrap-around up
 normal < shift + cmd - right : aerospace move-workspace-to-monitor --wrap-around right
 
+# vim: set filetype=skhd :
