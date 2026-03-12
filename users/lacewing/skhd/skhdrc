@@ -1,8 +1,4 @@
 .shell "/bin/zsh"
-# This config is for skhd.zig, not the original skhd.
-# It contains syntax that skhd does not recognize.
-
-.load "./aerospace.skhdrc"
 
 .define terminals ["Ghostty", "Terminal"]
 
@@ -22,8 +18,8 @@
 :: verbatim : @sb_wmmc("VER")
 
 # from normal
-normal < i ; default
-normal < v ; verbatim
+normal < escape ; default
+normal < cmd - escape ; verbatim
 
 # from insert
 default < cmd - escape ; normal
@@ -42,8 +38,9 @@ verbatim < cmd - escape ; default
 # Launching #
 #############
 
-normal < return : open -na 'Ghostty.app' ; default
-normal < cmd - return : open -na 'Zen Browser.app' ; default
+normal < return : open -na 'Ghostty' ; default
+normal < cmd - return : open -na 'Zen Browser' ; default
+normal < cmd - s : open -a 'Screenshot' ; default
 
 ##############
 # Navigation #
@@ -53,4 +50,10 @@ normal < u | pageup
 normal < d | pagedown
 normal < b | home
 normal < f | end
+
+#################
+# Other Modules #
+#################
+
+.load "./aerospace.skhdrc"
 
