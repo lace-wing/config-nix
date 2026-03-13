@@ -2,7 +2,7 @@
 
 start-at-login = true
 
-exec-on-workspace-change = ['/usr/bin/env bash', '-c',
+exec-on-workspace-change = ['/bin/bash', '-c',
     'sketchybar --trigger workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
 
