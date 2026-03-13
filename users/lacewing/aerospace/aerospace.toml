@@ -2,8 +2,12 @@
 
 start-at-login = true
 
-exec-on-workspace-change = ['/bin/bash', '-c',
+exec-on-workspace-change = ['/usr/bin/env bash', '-c',
     'sketchybar --trigger workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+on-focus-changed = [
+  'exec-and-forget sketchybar --trigger focus_change WINDOW_TITLE="$(aerospace list-windows --focused --format "%{app-bundle-path}" | sed -E "s-^$HOME($|(/.*))-~\2-")"'
 ]
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization

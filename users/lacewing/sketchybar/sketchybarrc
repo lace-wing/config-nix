@@ -11,6 +11,7 @@ PADDING=4                    # All paddings use this value (icon, label, backgro
 
 sketchybar --add event workspace_change
 sketchybar --add event wm_mode_change
+sketchybar --add event focus_change
 sketchybar --add event svim_mode_change
 
 # Setting up the general bar appearance of the bar
@@ -84,7 +85,8 @@ brackem() {
 wm=(
 	wm_mode
 	space
-	front_app
+	# front_app
+  focus
 )
 brackem wm
 
