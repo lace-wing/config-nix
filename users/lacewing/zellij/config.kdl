@@ -41,7 +41,7 @@ keybinds clear-defaults=true {
     bind "Esc" { SwitchToMode "normal"; }
   }
 
-  shared_except "locked" {
+  shared_except "locked" "tmux" {
     // Mode
     bind "Ctrl g" { SwitchToMode "locked"; }
   }
@@ -80,11 +80,9 @@ keybinds clear-defaults=true {
     // Tab
     bind "c" { NewTab; SwitchToMode "normal"; }
     bind "Ctrl q" { CloseTab; SwitchToMode "normal"; }
-    bind "Ctrl n" { MoveTab "right"; SwitchToMode "normal"; }
     bind "Ctrl p" { MoveTab "left"; SwitchToMode "normal"; }
+    bind "Ctrl n" { MoveTab "right"; SwitchToMode "normal"; }
 
-    bind "n" { GoToNextTab; SwitchToMode "normal"; }
-    bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
     bind "1" { GoToTab 1; SwitchToMode "normal"; }
     bind "2" { GoToTab 2; SwitchToMode "normal"; }
     bind "3" { GoToTab 3; SwitchToMode "normal"; }
@@ -102,7 +100,8 @@ keybinds clear-defaults=true {
     bind "s" { LaunchOrFocusPlugin "zellij:session-manager" { floating true; }; SwitchToMode "normal"; }
 
     // Input
-    bind "Ctrl a" { Write 2; SwitchToMode "normal"; }
+    bind "Ctrl a" { WriteChars ""; SwitchToMode "normal"; }
+    bind "Ctrl g" { WriteChars ""; SwitchToMode "normal"; }
   }
 
   normal {
@@ -116,8 +115,6 @@ keybinds clear-defaults=true {
     bind "Alt k" { MoveFocus "up"; }
 
     // Tab
-    bind "Alt n" { GoToNextTab; }
-    bind "Alt p" { GoToPreviousTab; }
     bind "Alt 1" { GoToTab 1; }
     bind "Alt 2" { GoToTab 2; }
     bind "Alt 3" { GoToTab 3; }
