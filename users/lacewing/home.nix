@@ -48,6 +48,8 @@ in {
       harper
 
       ### Lib ###
+      man-pages
+      man-pages-posix
 
       ### Tool ###
       outfieldr
