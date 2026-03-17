@@ -34,8 +34,10 @@ layout {
   }
 
   tab name="cpsc-221" cwd="cpsc-221" {
-    pane name="lab" cwd="$Y_SRC_DIR/cpsc-221"
-    pane name="pa" cwd="$Y_SRC_DIR/cpsc-221-pas"
+    pane stacked=true {
+      pane name="lab" cwd="$Y_SRC_DIR/cpsc-221"
+      pane name="pa" cwd="$Y_SRC_DIR/cpsc-221-pas"
+    }
   }
 
 }

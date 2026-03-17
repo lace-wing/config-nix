@@ -12,7 +12,7 @@ function fzf_editor() {
 
 # zellij attach or create with layout
 function zellij_session_layout() {
-  zellij attach "$1" 2>/dev/null || zellij --session "$1" --new-session-with-layout "${1:-default}"
+  zellij attach "$1" 2>/dev/null || zellij --session "$1" --new-session-with-layout "${2:-default}"
 }
 
 # tldr all commands with preview

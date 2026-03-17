@@ -12,7 +12,7 @@
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
 
-  shScripts = builtins.readFile ./../../mods/sh/scripts.sh;
+  shFunctions = builtins.readFile ./../../mods/sh/functions.sh;
   initApp = pkgs.writeShellApplication {
     name = "init";
     text = builtins.readFile ./../../mods/init/init.sh;
@@ -101,7 +101,7 @@ in {
 
       EDITOR = "nvim";
       VISUAL = "nvim";
-      PAGER = "less -FirSwX";
+      PAGER = "nvim +Man!";
       MANPAGER = "nvim +Man!";
 
       NIX_CONFIG_DIR = "${config.xdg.configHome}/nix-darwin";
@@ -162,12 +162,8 @@ in {
     initContent = builtins.readFile ./zsh/zshrc;
     profileExtra = lib.concatStringsSep "\n" [
       (builtins.readFile ./zsh/zprofile)
-      shScripts
+      shFunctions
     ];
-  };
-
-  programs.nushell = {
-    enable = true;
   };
 
   programs.direnv = {
@@ -274,7 +270,7 @@ in {
       zz = "zellij attach --create";
       zm = "zellij attach --create Main";
       zw = "zellij attach --create Work";
-      zu = "zellij_session_layout Uni";
+      zu = "zellij_session_layout Uni uni";
     }
     // (
       if isDarwin
