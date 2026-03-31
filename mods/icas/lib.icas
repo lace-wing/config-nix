@@ -1,3 +1,9 @@
+AtUnit := (_m)[0]:;
+
+SIUnit(a) := mksa(a)[2]:;
+
+SINum(a) := mksa(a)[1]:;
+
 EgyL(ll, li) := 1/2 * ll * li^2 :;
 
 EgyC(cc, cv) := 1/2 * cc * cv^2 :;
