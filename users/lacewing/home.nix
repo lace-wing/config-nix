@@ -161,7 +161,6 @@ in {
 
   programs.zsh = {
     enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
     initContent = builtins.readFile ./zsh/zshrc;
     profileExtra = lib.concatStringsSep "\n" [
       (builtins.readFile ./zsh/zprofile)
