@@ -60,9 +60,9 @@ in {
   };
 
   system.defaults = {
-    universalaccess = {
-      reduceMotion = true;
-    };
+    # universalaccess = {
+    #   reduceMotion = true;
+    # };
 
     NSGlobalDomain = {
       ### Control ###
