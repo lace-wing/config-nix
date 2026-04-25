@@ -107,7 +107,7 @@ in {
       PAGER = "nvim +Man!";
       MANPAGER = "nvim +Man!";
 
-      NIX_CONFIG_DIR = "${config.xdg.configHome}/nix-darwin";
+      NIX_CONFIG_DIR = "${config.xdg.configHome}/system";
       ZSH_CONFIG_DIR = "${config.home.sessionVariables.NIX_CONFIG_DIR}/users/${user}/zsh";
 
       X_SRC_DIR = "$HOME/src";
