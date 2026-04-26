@@ -13,6 +13,8 @@
   isLinux = pkgs.stdenv.isLinux;
 
   shFunctions = builtins.readFile ./../../mods/sh/functions.sh;
+  nuFunctions = builtins.readFile ./../../mods/nu/functions.nu;
+
   initApp = pkgs.writeShellApplication {
     name = "init";
     text = builtins.readFile ./../../mods/init/init.sh;
@@ -174,6 +176,10 @@ in {
 
   programs.nushell = {
     enable = true;
+    extraConfig = nuFunctions;
+    settings = {
+      show_banner = false;
+    };
   };
 
   programs.direnv = {
@@ -191,6 +197,10 @@ in {
   };
 
   programs.zoxide = {
+    enable = true;
+  };
+
+  programs.starship = {
     enable = true;
   };
 
@@ -256,15 +266,15 @@ in {
   #---------------------------------------------------------------------
 
   # UNIX and POSIX
-  home.shellAliases =
+  home.shellAliases = with config.home.sessionVariables;
     {
-      l = "ls -o";
+      l = "ls -l";
       la = "ls -a";
       ll = "ls -la";
 
-      rc = "$EDITOR $NIX_CONFIG_DIR";
-      zrc = "$EDITOR $ZSH_CONFIG_DIR/zshrc";
-      nrc = "$EDITOR $XDG_CONFIG_HOME/nvim/init.lua";
+      rc = "${EDITOR} ${NIX_CONFIG_DIR}";
+      zrc = "${EDITOR} ${ZSH_CONFIG_DIR}/zshrc";
+      nrc = "${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua";
 
       men = "tldr";
       human = "tldr_fzf_preview";
@@ -272,7 +282,7 @@ in {
       cd = "z";
       cdgt = "cd_git_top";
 
-      v = "$EDITOR";
+      v = "${EDITOR}";
       vv = "fzf_editor";
 
       zl = "zellij";
