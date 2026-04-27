@@ -62,17 +62,6 @@
     overlays = with inputs; [
       (final: prev: {
         zjstatus = zjstatus.packages.${prev.pkgs.stdenv.hostPlatform.system}.default;
-        zsh =
-          # FIXME
-          # https://github.com/NixOS/nixpkgs/issues/513543
-          prev.zsh.overrideAttrs (old:
-            prev.lib.optionalAttrs prev.stdenv.isDarwin {
-              preConfigure =
-                (old.preConfigure or "")
-                + ''
-                  export zsh_cv_sys_sigsuspend=yes
-                '';
-            });
       })
     ];
   in {
