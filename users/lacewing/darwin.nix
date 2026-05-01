@@ -28,12 +28,12 @@ in {
       "lulu"
       "zen"
       "zoom"
+      "voov-meeting"
       "legcord"
       "mumble"
       "zerotier-one"
       "zotero"
       "sf-symbols" # various icons used in sketchybar, etc.
-      "intellij-idea"
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
@@ -113,7 +113,6 @@ in {
     nerd-fonts.monaspace
     nerd-fonts.iosevka-term
     fira-mono
-    xits-math
   ];
 
   security.pam = {
