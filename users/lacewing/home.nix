@@ -250,7 +250,23 @@ in {
         nvim-origami
         easy-dotnet-nvim
         # tree-sitter
-        nvim-treesitter
+        (nvim-treesitter.withPlugins (p:
+          with p; [
+            c
+            cpp
+            zig
+            go
+            lua
+            python
+            rust
+            c_sharp
+            fsharp
+            haskell
+            elixir
+            nu
+            typst
+            objdump
+          ]))
         nvim-treesitter-context
         nvim-treesitter-textobjects
         # diagnostics
@@ -265,22 +281,6 @@ in {
         which-key-nvim
         vim-slime
       ]
-      ++ (with nvim-treesitter-parsers; [
-        c
-        cpp
-        zig
-        go
-        lua
-        python
-        rust
-        c_sharp
-        fsharp
-        haskell
-        elixir
-        nu
-        typst
-        objdump
-      ])
       ++ lib.optionals isDarwin [
         vim-macos-ime
       ];
