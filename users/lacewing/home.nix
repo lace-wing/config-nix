@@ -116,6 +116,7 @@ in {
 
       NIX_CONFIG_DIR = "${config.xdg.configHome}/system";
       ZSH_CONFIG_DIR = "${config.home.sessionVariables.NIX_CONFIG_DIR}/users/${user}/zsh";
+      NVIM_CONFIG_DIR = "${config.home.sessionVariables.NIX_CONFIG_DIR}/users/${user}/nvim";
 
       X_SRC_DIR = "$HOME/src";
       Y_SRC_DIR = "$HOME/srcy";
@@ -246,6 +247,7 @@ in {
         nvim-dap-virtual-text
         # lsp
         conform-nvim
+        nvim-origami
         easy-dotnet-nvim
         # tree-sitter
         nvim-treesitter
@@ -277,6 +279,7 @@ in {
         elixir
         nu
         typst
+        objdump
       ])
       ++ lib.optionals isDarwin [
         vim-macos-ime
@@ -339,7 +342,7 @@ in {
 
       rc = "${EDITOR} ${NIX_CONFIG_DIR}";
       zrc = "${EDITOR} ${ZSH_CONFIG_DIR}/zshrc";
-      nrc = "${EDITOR} ${XDG_CONFIG_HOME}/nvim/init.lua";
+      nrc = "${EDITOR} ${NVIM_CONFIG_DIR}";
 
       men = "tldr";
       human = "tldr_fzf_preview";

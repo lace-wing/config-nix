@@ -30,4 +30,11 @@ conform.setup({
 })
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
+require('origami').setup({
+  autoFold = {
+    enabled = true,
+    kinds = { "imports", "region" }, ---@type lsp.FoldingRangeKind[]
+  },
+})
+
 map('n', '<LEADER>l', conform.format, { desc = 'Format' })

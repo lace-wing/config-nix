@@ -1,8 +1,6 @@
 local map = require('util').vim.map
 
-local ts = require('nvim-treesitter')
-
-ts.setup({
+require('nvim-treesitter').setup({
   highlight = {
     enable = true,
   },
@@ -23,20 +21,20 @@ local tomove = require('nvim-treesitter-textobjects.move')
 -- Select --
 ------------
 
-vim.keymap.set({ "x", "o" }, "am", function()
+map({ "x", "o" }, "am", function()
   tosel.select_textobject("@function.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "im", function()
+map({ "x", "o" }, "im", function()
   tosel.select_textobject("@function.inner", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "ac", function()
+map({ "x", "o" }, "ac", function()
   tosel.select_textobject("@class.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "ic", function()
+map({ "x", "o" }, "ic", function()
   tosel.select_textobject("@class.inner", "textobjects")
 end)
 -- You can also use captures from other query groups like `locals.scm`
-vim.keymap.set({ "x", "o" }, "as", function()
+map({ "x", "o" }, "as", function()
   tosel.select_textobject("@local.scope", "locals")
 end)
 
