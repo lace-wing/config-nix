@@ -19,18 +19,15 @@
     name = "init";
     text = builtins.readFile ./../../mods/init/init.sh;
   };
-
-  vim-macos-ime = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-macos-ime";
-    src = pkgs.fetchFromGitHub {
-      owner = "laishulu";
-      repo = "vim-macos-ime";
-      rev = "master";
-      sha256 = "tQYq/DWb6j+FIAxuA861ct/ym/1y1oROJgk8hqp0rZ0=";
-    };
-  };
 in {
   home.stateVersion = "26.05";
+
+  imports = [
+    ./neovim.nix
+    ./starship.nix
+  ];
+
+  _module.args = {inherit user isDarwin isLinux isWSL;};
 
   xdg.enable = true;
 
@@ -72,7 +69,6 @@ in {
       poppler-utils
       pdfpc
       mpv
-      zjstatus
       fastfetch
       giac
 
@@ -109,14 +105,8 @@ in {
       LC_CTYPE = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";
 
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      PAGER = "nvim +Man!";
-      MANPAGER = "nvim +Man!";
-
       NIX_CONFIG_DIR = "${config.xdg.configHome}/system";
       ZSH_CONFIG_DIR = "${NIX_CONFIG_DIR}/users/${user}/zsh";
-      NVIM_CONFIG_DIR = "${NIX_CONFIG_DIR}/users/${user}/nvim";
 
       X_SRC_DIR = "$HOME/src";
       Y_SRC_DIR = "$HOME/srcy";
@@ -128,19 +118,10 @@ in {
       DISPLAY = "nixpkgs-390751";
     };
 
-  home.file = {
-  };
-
   xdg.configFile = {
-    "nvim/".source = ./nvim;
     "ghostty/".source = ./ghostty;
     "aerospace/".source = ./aerospace;
     "skhd/".source = ./skhd;
-    "zellij/" = {
-      source = ./zellij;
-      recursive = true;
-    };
-    "zellij/plugins/zjstatus.wasm".source = "${pkgs.zjstatus}/bin/zjstatus.wasm";
   };
 
   #---------------------------------------------------------------------
@@ -199,13 +180,6 @@ in {
     enable = true;
   };
 
-  programs.starship = {
-    enable = true;
-    presets = [
-      "plain-text-symbols"
-    ];
-  };
-
   programs.carapace = {
     enable = true;
   };
@@ -220,78 +194,6 @@ in {
 
   programs.pandoc = {
     enable = true;
-  };
-
-  programs.zellij = {
-    enable = true;
-    # settings = xdg.configFile
-  };
-
-  programs.neovim = {
-    enable = true;
-    # settings = xdg.configFile
-    plugins = with pkgs.vimPlugins;
-      [
-        # completion
-        blink-cmp
-        mini-snippets
-        # colors
-        mini-hipatterns
-        alabaster-nvim
-        # debugging
-        nvim-dap
-        nvim-dap-virtual-text
-        # lsp
-        conform-nvim
-        nvim-origami
-        easy-dotnet-nvim
-        # tree-sitter
-        (nvim-treesitter.withPlugins (p:
-          with p; [
-            c
-            cpp
-            zig
-            go
-            lua
-            python
-            rust
-            c_sharp
-            fsharp
-            haskell
-            elixir
-            nu
-            typst
-            objdump
-          ]))
-        nvim-treesitter-context
-        nvim-treesitter-textobjects
-        # diagnostics
-        trouble-nvim
-        # misc
-        oil-nvim
-        mini-pick
-        mini-pairs
-        mini-surround
-        mini-git
-        mini-diff
-        which-key-nvim
-        vim-slime
-      ]
-      ++ lib.optionals isDarwin [
-        vim-macos-ime
-      ];
-    extraPackages = with pkgs; [
-      tree-sitter
-      alejandra
-      lua-language-server
-      pyright
-      tinymist
-      roslyn-ls
-      fsautocomplete
-      fantomas
-      zls
-      nufmt
-    ];
   };
 
   programs.ghostty = {
@@ -338,7 +240,6 @@ in {
 
       rc = "${EDITOR} ${NIX_CONFIG_DIR}";
       zrc = "${EDITOR} ${ZSH_CONFIG_DIR}/zshrc";
-      nrc = "${EDITOR} ${NVIM_CONFIG_DIR}";
 
       men = "tldr";
       human = "tldr_fzf_preview";
@@ -348,13 +249,6 @@ in {
 
       v = "${EDITOR}";
       vv = "fzf_editor";
-
-      zl = "zellij";
-      za = "zellij action";
-      zz = "zellij attach --create";
-      zm = "zellij attach --create Main";
-      zw = "zellij attach --create Work";
-      zu = "zellij_session_layout Uni uni";
     }
     // (
       if isDarwin
