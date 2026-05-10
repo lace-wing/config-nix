@@ -36,24 +36,26 @@ in {
           "$cmd_duration"
 
           "$line_break"
-          "$shlvl"
           "$jobs"
           "$container"
+          "$shlvl"
           "$character"
         ];
         right_format = builtins.concatStringsSep "" [
           "$status"
-          "$shell"
         ];
         sudo = {
           disabled = false;
         };
-        shell = {
+        status = {
           disabled = false;
         };
         shlvl = {
           disabled = false;
-          symbol = "lv ";
+          symbol = "|";
+          repeat = true;
+          repeat_offset = 1;
+          format = "[$symbol]($style)";
         };
         add_newline = false;
       }
