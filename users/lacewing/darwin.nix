@@ -113,7 +113,7 @@ in {
     nerd-fonts.monaspace
     nerd-fonts.iosevka-term
     fira-mono
-    aptos-font
+    aptos-fonts
   ];
 
   security.pam = {

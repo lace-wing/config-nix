@@ -63,8 +63,8 @@
       (final: prev: {
         zjstatus = zjstatus.packages.${prev.pkgs.stdenv.hostPlatform.system}.default;
 
-        aptos-font = prev.pkgs.stdenvNoCC.mkDerivation {
-          pname = "aptos-font";
+        aptos-fonts = prev.pkgs.stdenvNoCC.mkDerivation {
+          pname = "aptos-fonts";
           version = "4.4.0";
           src = prev.pkgs.fetchzip {
             url = "https://download.microsoft.com/download/8/6/0/860a94fa-7feb-44ef-ac79-c072d9113d69/Microsoft%20Aptos%20Fonts.zip";
