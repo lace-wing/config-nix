@@ -38,9 +38,9 @@ verbatim < cmd - escape ; default
 # Launching #
 #############
 
-normal < return : open -na 'Ghostty' ; default
-normal < cmd - return : open -na 'Zen Browser' ; default
-normal < cmd - s : open -a 'Screenshot' ; default
+normal < return : exec open -a 'Ghostty' ; default
+normal < cmd - return : exec open -a 'Zen Browser' ; default
+normal < cmd - s : exec open -a 'Screenshot' ; default
 
 ##############
 # Navigation #
