@@ -34,8 +34,6 @@ in {
         conform-nvim
         nvim-origami
         easy-dotnet-nvim
-        # includes ts parser & queries
-        orgmode
         ## tree-sitter ##
         (nvim-treesitter.withPlugins (p:
           with p; [
