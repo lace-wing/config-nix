@@ -52,11 +52,9 @@ in {
     [
       ### Lang ###
       clang-tools
-      python314
       typst
       dotnet-sdk
       zig
-      nodejs
       go
       cargo
 
@@ -164,6 +162,18 @@ in {
     # Cache the keys forever so we don't get asked for a password
     defaultCacheTtl = 31536000;
     maxCacheTtl = 31536000;
+  };
+
+  programs.npm = {
+    enable = false;
+    settings = {
+      ignore-scripts = true;
+      provenance = true;
+      save-exact = true;
+      save-prefix = "";
+      # days
+      min-release-age = 7;
+    };
   };
 
   programs.bash = {
