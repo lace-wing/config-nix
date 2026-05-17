@@ -44,9 +44,9 @@ map({ 'n', 'v', 'x' }, ':', ':!')
 map({ 'n', 'v', 'x', }, 'j', 'gj')
 map({ 'n', 'v', 'x', }, 'k', 'gk')
 
-map('n', '<LEADER>o', ':update<CR> :source<CR>')
 map('n', '<LEADER>w', ':write<CR>')
 map('n', '<LEADER>q', ':quit<CR>')
+map('n', '<LEADER>Q', ':quit!<CR>')
 
 map({ 'n', 'v', 'x' }, '<LEADER>y', '"+y')
 map({ 'n', 'v', 'x' }, '<LEADER>d', '"+d')
@@ -54,7 +54,8 @@ map({ 'n', 'v', 'x' }, '<LEADER>c', '"+c')
 map({ 'n', 'v', 'x' }, '<LEADER>s', '"+s')
 map({ 'n', 'v', 'x' }, '<LEADER>p', '"+p')
 
-map({ 'n', 'v', 'x' }, '<LEADER>Y', '"+Y')
+-- Y = y$ due to Y-default, <"x>Y = yy
+map({ 'n', 'v', 'x' }, '<LEADER>Y', '"+y$')
 map({ 'n', 'v', 'x' }, '<LEADER>D', '"+D')
 map({ 'n', 'v', 'x' }, '<LEADER>C', '"+C')
 map({ 'n', 'v', 'x' }, '<LEADER>S', '"+S')
