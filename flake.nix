@@ -23,10 +23,6 @@
       flake = false;
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +40,10 @@
 
     zjstatus = {
       url = "github:dj95/zjstatus";
+    };
+
+    plover = {
+      url = "github:openstenoproject/plover-flake";
     };
   };
 

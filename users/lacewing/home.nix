@@ -30,6 +30,7 @@ in {
   home.stateVersion = "26.05";
 
   imports = [
+    inputs.plover.homeManagerModules.plover
     ./neovim.nix
     ./starship.nix
     ./zellij.nix
@@ -66,8 +67,8 @@ in {
       exiftool
       imagemagick
       poppler-utils
-      sioyek
       pdfpc
+      ffmpeg
       mpv
       fastfetch
       giac
@@ -215,6 +216,25 @@ in {
 
   programs.pandoc = {
     enable = true;
+  };
+
+  programs.plover = {
+    enable = true;
+    package = inputs.plover.packages.${pkgs.stdenv.hostPlatform.system}.plover.withPlugins (
+      ps: [
+      ]
+    );
+  };
+
+  programs.sioyek = {
+    enable = true;
+
+    config = {
+      startup_commands = [
+        "toggle_dark_mode"
+      ];
+      "show_doc_path" = "1";
+    };
   };
 
   programs.ghostty = {
