@@ -231,9 +231,15 @@ in {
 
     config = {
       startup_commands = [
+        "toggle_titlebar"
         "toggle_dark_mode"
       ];
       "show_doc_path" = "1";
+    };
+    bindings = {
+      "open_document_embedded_from_current_path" = "e";
+      "open_prev_doc" = "E";
+      "open_all_docs" = "<C-e>";
     };
   };
 
