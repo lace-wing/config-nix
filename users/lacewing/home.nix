@@ -55,6 +55,7 @@ in {
       man-pages-posix
 
       ### Tool ###
+      p7zip
       outfieldr
       fd
       fzf
