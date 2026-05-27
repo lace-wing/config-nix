@@ -58,6 +58,7 @@ in {
       outfieldr
       fd
       fzf
+      gdu
       gh
       jq
       ripgrep
