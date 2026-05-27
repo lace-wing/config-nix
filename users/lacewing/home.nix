@@ -17,9 +17,8 @@
     noto-fonts-cjk-serif-static
     noto-fonts-cjk-sans-static
     crimson-pro
-    iosevka
     nerd-fonts.monaspace
-    nerd-fonts.iosevka-term
+    nerd-fonts.iosevka
     fira-mono
     aptos-fonts
   ];

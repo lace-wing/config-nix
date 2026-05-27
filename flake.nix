@@ -2,7 +2,7 @@
   description = "A Nix config for macOS and NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     nixpkgs-old = {
       url = "github:NixOs/nixpkgs/4dadbbb8976a6f291c250f6546b55c2651238c2a";
