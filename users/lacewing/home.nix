@@ -71,7 +71,6 @@ in {
       pdfpc
       ffmpeg
       mpv
-      fastfetch
       giac
     ]
     ++ fontPackages
@@ -265,6 +264,43 @@ in {
   programs.aerospace = {
     enable = isDarwin;
     # settings = xdg.configFile
+  };
+
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      modules = [
+        "title"
+        "separator"
+        "host"
+        "cpu"
+        "gpu"
+        "display"
+        "separator"
+        "os"
+        "kernel"
+        {
+          type = "command";
+          key = "Config";
+          text = ./fastfetch/scripts/config-credit.nu;
+        }
+        "de"
+        "wm"
+        {
+          type = "command";
+          key = "Wallpaper";
+          text = "${./fastfetch/scripts/image-credit.nu} ~/wallpaper";
+        }
+        "theme"
+        "font"
+        "terminal"
+        "terminalfont"
+        "shell"
+        "editor"
+        "break"
+        "colors"
+      ];
+    };
   };
 
   # Make cursor not tiny on HiDPI screens
