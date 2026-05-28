@@ -5,6 +5,7 @@ vim.filetype.add({
   extension = {
     eex = 'eelixir',
     surface = 'surface',
+    nuon = 'nu',
     objdump = 'objdump',
     ipynb = 'jupyter',
     icas = 'icas',
