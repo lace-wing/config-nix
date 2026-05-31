@@ -84,12 +84,14 @@ in {
       nixd
       elixir-ls
       zls
-      nufmt
+      nasmfmt
+      topiary
     ];
   };
 
   xdg.configFile = {
     "nvim/".source = ./nvim;
+    "topiary/".source = ./topiary;
   };
 
   home.sessionVariables = with config.home.sessionVariables; {

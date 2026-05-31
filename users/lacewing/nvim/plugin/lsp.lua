@@ -23,9 +23,22 @@ vim.lsp.enable({
 local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
+    nu = { 'topiary' },
     asm = { 'nasmfmt' },
-    -- FIXME nufmt currently buggy
-    -- nu = { 'nufmt' },
+  },
+  formatters = {
+    topiary = {
+      command = 'topiary',
+      -- Topiary needs file extension to detect language.
+      args = { 'format', '$FILENAME' },
+      stdin = false,
+    },
+    nasmfmt = {
+      command = 'nasmfmt',
+      -- nasmfmt does not use stdin
+      args = { '$FILENAME' },
+      stdin = false,
+    },
   },
   default_format_opts = {
     lsp_format = "fallback",
