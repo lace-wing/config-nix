@@ -1,9 +1,0 @@
-read("/etc/icas/libelec.icas");
-
-Vas := [];
-Eqs := [];
-
-assign(Vas, solve(Eqs, Vas)[0]);
-
-approx(Vas);
-

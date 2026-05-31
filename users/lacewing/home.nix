@@ -23,8 +23,9 @@
     aptos-fonts
   ];
 
-  shFunctions = builtins.readFile ./../../mods/sh/functions.sh;
-  nuFunctions = builtins.readFile ./../../mods/nu/functions.nu;
+  zshFunctions = builtins.readFile ./zsh/functions.sh;
+  nuCommands = builtins.readFile ./nushell/commands.nu;
+  nuHooks = builtins.readFile ./nushell/hooks.nu;
 in {
   home.stateVersion = "26.05";
 
@@ -172,15 +173,27 @@ in {
     initContent = builtins.readFile ./zsh/zshrc;
     profileExtra = lib.concatStringsSep "\n" [
       (builtins.readFile ./zsh/zprofile)
-      shFunctions
+      zshFunctions
     ];
   };
 
   programs.nushell = {
     enable = true;
-    extraConfig = nuFunctions;
+    extraConfig = lib.concatStringsSep "\n" [
+      nuHooks
+      nuCommands
+    ];
     settings = {
       show_banner = false;
+      footer_mode = "auto";
+      table = {
+        missing_value_symbol = "♡";
+        mode = "frameless";
+        trim = {
+          methodology = "truncating";
+          truncating_suffix = "...";
+        };
+      };
     };
   };
 
