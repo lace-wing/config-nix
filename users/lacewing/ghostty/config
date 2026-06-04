@@ -23,8 +23,11 @@ font-size = 16
 # theme = Arthur
 
 ### purple-peach ###
-theme = Hanekawa
+theme = Hanekawa White
 
 background-opacity = 0.67
 background-blur-radius = 0
+
+# Additional opacity, acts against the mask.
+unfocused-split-opacity = 1
 

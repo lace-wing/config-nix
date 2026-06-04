@@ -17,6 +17,12 @@ palette = 15=#f5f3f5
 background = #090508
 foreground = #e3e2e3
 cursor-color = #fffdfe
-cursor-text = #040203
+cursor-text = #090508
 selection-background = #2e202a
 selection-foreground = #f9fafe
+search-background = #768b65
+search-foreground = #090508
+search-selected-background = #9dc1a1
+search-selected-foreground = #090508
+unfocused-split-fill = #090508
+split-divider-color = #6396cc
