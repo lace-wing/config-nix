@@ -25,11 +25,20 @@
 
   services.kmscon = {
     enable = true;
-    fonts = [
+    hwRender = false;
+    fonts = with pkgs; [
       {
         name = "MonaspiceAr NFM";
-        package = pkgs.nerd-fonts.monaspace;
+        package = nerd-fonts.monaspace;
+      }
+      {
+        name = "Noto Sans Mono CJK SC";
+        package = noto-fonts-cjk-sans;
       }
     ];
+    extraConfig = ''
+      term=xterm-256color
+      font-size=16
+    '';
   };
 }
