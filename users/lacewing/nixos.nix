@@ -3,8 +3,7 @@
   pkgs,
   user,
   ...
-}:
-{
+}: {
   nix.optimise.automatic = true;
 
   environment.etc = {
@@ -24,4 +23,13 @@
 
   programs.zsh.enable = true;
 
+  services.kmscon = {
+    enable = true;
+    fonts = [
+      {
+        name = "MonaspiceAr NFM";
+        package = pkgs.nerd-fonts.monaspace;
+      }
+    ];
+  };
 }

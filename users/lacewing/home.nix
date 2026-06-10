@@ -111,8 +111,7 @@ in {
       serif = ["Noto Serif"];
       sansSerif = ["Noto Sans"];
       monospace = [
-        "Monaspace NFM"
-        "Iosevka NFM"
+        "MonaspiceAr NFM"
       ];
     };
   };
