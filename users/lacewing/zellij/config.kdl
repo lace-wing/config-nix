@@ -75,7 +75,7 @@ keybinds clear-defaults=true {
 
     bind "e" { EditScrollback; SwitchToMode "normal"; }
     bind "Ctrl e" { Clear; SwitchToMode "normal"; }
-    bind "." { SwitchToMode "renamepane"; }
+    bind "r" { SwitchToMode "renamepane"; }
 
     // Tab
     bind "c" { NewTab; SwitchToMode "normal"; }
@@ -93,7 +93,7 @@ keybinds clear-defaults=true {
     bind "8" { GoToTab 8; SwitchToMode "normal"; }
     bind "9" { GoToTab 9; SwitchToMode "normal"; }
     
-    bind "Ctrl ." { SwitchToMode "renametab"; }
+    bind "Ctrl r" { SwitchToMode "renametab"; }
 
     // Session
     bind "d" { Detach; }
