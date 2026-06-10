@@ -108,10 +108,17 @@ in {
 
     # packages in fontPkgs
     defaultFonts = {
-      serif = ["Noto Serif"];
-      sansSerif = ["Noto Sans"];
+      serif = [
+        "Noto Serif"
+        "Noto Serif CJK SC"
+      ];
+      sansSerif = [
+        "Noto Sans"
+        "Noto Sans CJK SC"
+      ];
       monospace = [
         "MonaspiceAr NFM"
+        "Noto Sans Mono CJK SC"
       ];
     };
   };
@@ -181,7 +188,7 @@ in {
     enable = true;
     initContent = builtins.readFile ./zsh/zshrc;
     profileExtra = lib.concatStringsSep "\n" [
-      (builtins.readFile ./zsh/zprofile)
+      # (builtins.readFile ./zsh/zprofile)
       zshFunctions
     ];
   };

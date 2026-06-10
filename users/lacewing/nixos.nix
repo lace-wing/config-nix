@@ -25,7 +25,7 @@
 
   services.kmscon = {
     enable = true;
-    hwRender = false;
+    hwRender = true;
     fonts = with pkgs; [
       {
         name = "MonaspiceAr NFM";
@@ -33,12 +33,18 @@
       }
       {
         name = "Noto Sans Mono CJK SC";
-        package = noto-fonts-cjk-sans;
+        package = noto-fonts-cjk-sans-static;
       }
     ];
     extraConfig = ''
-      term=xterm-256color
-      font-size=16
+      font-size=20
+
+      # grab-zoom-in=<Logo>Plus
+      # grab-zoom-out=<Logo>Minus
+      # grab-scroll-up=<Logo>Up
+      # grab-scroll-down=<Logo>Down
+      # grab-page-up=<Logo>Prior
+      # grab-page-down=<Logo>Next
     '';
   };
 }
