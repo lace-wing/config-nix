@@ -23,6 +23,20 @@
 
   programs.zsh.enable = true;
 
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = ["*"];
+        settings = {
+          main = {
+            capslock = "escape";
+          };
+        };
+      };
+    };
+  };
+
   services.kmscon = {
     enable = true;
     hwRender = true;

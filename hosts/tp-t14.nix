@@ -1,11 +1,10 @@
 {
   self,
   pkgs,
-	lib,
+  lib,
   config,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware/tp-t14.nix
@@ -37,10 +36,10 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver = {
-  #   enable = false;
-  #   videoDrivers = [ "intel" ];
-  # };
+  services.xserver = {
+    enable = false;
+    videoDrivers = ["intel"];
+  };
 
   # Enable polkit
   security.polkit.enable = true;
@@ -50,7 +49,7 @@
 
   # pam config
   security.pam.services = {
-    swaylock = { };
+    swaylock = {};
   };
 
   # Configure keymap in X11
@@ -81,7 +80,6 @@
   services.fprintd.tod.enable = true;
   # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (If the vfs0090 Driver does not work, use the following driver)
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # (On my device it only worked with this driver)
-
 
   environment.shells = with pkgs; [
     bashInteractive
