@@ -36,7 +36,14 @@ in {
     ./zellij.nix
   ];
 
-  _module.args = {inherit user isDarwin isLinux isWSL;};
+  _module.args = {
+    inherit
+      user
+      isDarwin
+      isLinux
+      isWSL
+      ;
+  };
 
   xdg.enable = true;
 
@@ -124,7 +131,7 @@ in {
 
       UNI_DIR = "${Y_SRC_DIR}/study";
     }
-    // lib.optionals isDarwin {
+    // lib.optionalAttrs isDarwin {
       # See: https://github.com/NixOS/nixpkgs/issues/390751
       DISPLAY = "nixpkgs-390751";
     };
@@ -165,7 +172,10 @@ in {
   programs.bash = {
     enable = true;
     shellOptions = [];
-    historyControl = ["ignoredups" "ignorespace"];
+    historyControl = [
+      "ignoredups"
+      "ignorespace"
+    ];
   };
 
   programs.zsh = {
@@ -221,6 +231,12 @@ in {
 
   programs.git = {
     enable = true;
+    settings = {
+      user = {
+        name = "lace-wing";
+        email = "lycrlsu01@gmail.com";
+      };
+    };
   };
 
   programs.gh = {
@@ -233,10 +249,9 @@ in {
 
   programs.plover = {
     enable = true;
-    package = inputs.plover.packages.${pkgs.stdenv.hostPlatform.system}.plover.withPlugins (
-      ps: [
-      ]
-    );
+    package =
+      inputs.plover.packages.${pkgs.stdenv.hostPlatform.system}.plover.withPlugins (ps: [
+      ]);
   };
 
   programs.sioyek = {
@@ -347,17 +362,13 @@ in {
       v = "${EDITOR}";
       vv = "fzf_editor";
     }
-    // (
-      if isDarwin
-      then {
-        cddc = "cd ~/Documents/";
-        cddw = "cd ~/Downloads/";
-        cdds = "cd ~/Desktop/";
-        cdpc = "cd ~/Pictures/";
-        cdss = "cd ~/Pictures/Screen\\ Shot/";
-        cdas = "cd ~/Library/Application\\ Support/";
-        cdic = "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs";
-      }
-      else {}
-    );
+    // lib.optionalAttrs isDarwin {
+      cddc = "cd ~/Documents/";
+      cddw = "cd ~/Downloads/";
+      cdds = "cd ~/Desktop/";
+      cdpc = "cd ~/Pictures/";
+      cdss = "cd ~/Pictures/Screen\\ Shot/";
+      cdas = "cd ~/Library/Application\\ Support/";
+      cdic = "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs";
+    };
 }

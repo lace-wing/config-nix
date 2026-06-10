@@ -1,5 +1,5 @@
 SWITCH_FLAGS := --show-trace --verbose
-SWITCH_PROFILE := --flake ~/.config/system
+SWITCH_PROFILE := --flake .
 
 OS := $(shell uname -s)
 ifeq ($(OS),Darwin)

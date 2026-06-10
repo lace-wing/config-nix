@@ -73,7 +73,7 @@ in
       nix-homebrew
       {
         nix-homebrew = {
-          enable = true;
+          enable = darwin;
           # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
           enableRosetta = true;
           # mutableTaps = false;
