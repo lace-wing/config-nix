@@ -4,6 +4,7 @@ plugins {
   sb location="file:$XDG_CONFIG_HOME/zellij/plugins/zjstatus.wasm" {
     format_left   " #[fg=green]{session} #[]{mode} "
     format_center "#[fg=green]{tabs}"
+    format_right  "#[fg=green]BAT {command_bat}%"
 
     mode_normal     "#[fg=green]NOR"
     mode_locked     "#[fg=bright_red]VER"
@@ -29,6 +30,10 @@ plugins {
 
     tab_truncate_start_format "#[fg=yellow]<+{count} "
     tab_truncate_end_format  " #[fg=yellow]+{count}>"
+
+    command_bat_command  "cat /sys/class/power_supply/BAT0/capacity"
+    command_bat_format   "{stdout}"
+    command_bat_interval "5"
   }
 }
 
@@ -52,9 +57,9 @@ keybinds clear-defaults=true {
 
   tmux {
     // Pane
-    bind "\\" { NewPane "right"; SwitchToMode "normal"; }
+    bind ";" { NewPane "right"; SwitchToMode "normal"; }
     bind "'" { NewPane "down"; SwitchToMode "normal"; }
-    bind "Ctrl '" { NewPane "stacked"; SwitchToMode "normal"; }
+    bind "\\" { NewPane "stacked"; SwitchToMode "normal"; }
     bind "q" { CloseFocus; SwitchToMode "normal"; }
     bind "Ctrl f" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     bind "f" { ToggleFloatingPanes; SwitchToMode "normal"; }
