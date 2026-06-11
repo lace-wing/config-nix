@@ -17,6 +17,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "audio"
       "video"
     ];
   };

@@ -78,6 +78,10 @@ keybinds clear-defaults=true {
     bind "Ctrl j" { MovePane "down"; SwitchToMode "normal"; }
     bind "Ctrl k" { MovePane "up"; SwitchToMode "normal"; }
 
+    bind "Up" { ScrollUp; }
+    bind "Down" { ScrollDown; }
+    bind "PageUp" { PageScrollUp; }
+    bind "PageDown" { PageScrollDown; }
     bind "e" { EditScrollback; SwitchToMode "normal"; }
     bind "Ctrl e" { Clear; SwitchToMode "normal"; }
     bind "r" { SwitchToMode "renamepane"; }

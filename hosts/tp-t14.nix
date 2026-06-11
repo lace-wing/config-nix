@@ -90,14 +90,12 @@
 
   environment.systemPackages = with pkgs; [
     fprintd
+    brightnessctl
     file
-    zip
     unzip
-    tree
     gnumake
     cmake
     vim
-    neovim
     wget
     git
   ];
