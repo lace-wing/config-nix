@@ -13,7 +13,7 @@
   users.users.lacewing = {
     isNormalUser = true;
     description = "Lacewing";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
     extraGroups = [
       "wheel"
       "networkmanager"
