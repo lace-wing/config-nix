@@ -33,7 +33,7 @@ plugins {
 
     command_bat_command  "cat /sys/class/power_supply/BAT0/capacity"
     command_bat_format   "{stdout}"
-    command_bat_interval "5"
+    command_bat_interval "10"
   }
 }
 

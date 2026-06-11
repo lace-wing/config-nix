@@ -1,4 +1,5 @@
 {
+  #TODO add gui/de flag
   isWSL,
   inputs,
   user,
@@ -80,6 +81,8 @@ in {
       ffmpeg
       mpv
       giac
+      weechat
+      elinks
     ]
     ++ fontPackages
     ++ lib.optionals isDarwin [
@@ -287,6 +290,10 @@ in {
       else pkgs.ghostty;
   };
 
+  programs.yazi = {
+    enable = true;
+  };
+
   programs.sketchybar = {
     enable = isDarwin;
     config = {
@@ -349,9 +356,9 @@ in {
   # Aliases
   #---------------------------------------------------------------------
 
-  # UNIX and POSIX
   home.shellAliases = with config.home.sessionVariables;
     {
+      # Use common flags for nushell compat
       l = "ls -l";
       la = "ls -a";
       ll = "ls -la";
