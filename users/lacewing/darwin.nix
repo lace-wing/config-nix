@@ -117,6 +117,6 @@ in {
 
   users.users.lacewing = {
     home = "/Users/lacewing";
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
   };
 }
