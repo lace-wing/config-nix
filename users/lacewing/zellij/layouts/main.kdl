@@ -8,7 +8,19 @@ layout {
     }
   }
 
-  tab {
+  tab name="work" {
+    pane;
+  }
+
+  tab name="chore" {
+    pane;
+  }
+
+  tab name="web" {
+    pane;
+  }
+
+  tab name="sys" cwd="$NIX_CONFIG_DIR" {
     pane;
   }
 }

@@ -75,4 +75,8 @@
       palette-foreground=227,226,227
     '';
   };
+
+  environment.shellAliases = {
+    sus = "systemctl suspend";
+  };
 }

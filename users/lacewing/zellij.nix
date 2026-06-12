@@ -19,8 +19,7 @@
     zl = "zellij";
     za = "zellij action";
     zz = "zellij attach --create";
-    zm = "zellij attach --create Main";
-    zw = "zellij attach --create Work";
+    zm = "zellij_session_layout Main main";
     zu = "zellij_session_layout Uni uni";
   };
 }
