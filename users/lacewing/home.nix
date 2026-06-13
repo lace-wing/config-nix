@@ -83,7 +83,7 @@ in {
       mpv
       giac
       weechat
-      elinks
+      chawan
     ]
     ++ fontPackages
     ++ lib.optionals isDarwin [
@@ -136,8 +136,8 @@ in {
       NIX_CONFIG_DIR = "${config.xdg.configHome}/system";
       ZSH_CONFIG_DIR = "${NIX_CONFIG_DIR}/users/${user}/zsh";
 
-      X_SRC_DIR = "$HOME/src";
-      Y_SRC_DIR = "$HOME/srcy";
+      X_SRC_DIR = "~/src";
+      Y_SRC_DIR = "~/srcy";
 
       UNI_DIR = "${Y_SRC_DIR}/study";
     }
@@ -246,7 +246,19 @@ in {
         name = "lace-wing";
         email = "lycrlsu01@gmail.com";
       };
+      diff = {
+        tool = "nvimdiff";
+      };
+      merge = {
+        tool = "nvimdiff3";
+      };
     };
+    includes = with config.home.sessionVariables; [
+      {
+        condition = "gitdir:${Y_SRC_DIR}/";
+        path = "${Y_SRC_DIR}/.gitconfig";
+      }
+    ];
   };
 
   programs.gh = {
