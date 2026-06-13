@@ -63,7 +63,6 @@ in {
       man-pages-posix
 
       ### Tool ###
-      below
       _7zz
       outfieldr
       fd
@@ -93,6 +92,7 @@ in {
     ]
     ++ lib.optionals (isLinux && !isWSL) [
       valgrind
+      below
     ];
 
   #---------------------------------------------------------------------
