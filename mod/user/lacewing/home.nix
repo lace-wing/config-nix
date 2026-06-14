@@ -1,6 +1,7 @@
 {
   #TODO add gui/de flag
   isWSL,
+  isGui,
   inputs,
   user,
   ...
@@ -270,14 +271,14 @@ in {
   };
 
   programs.plover = {
-    enable = true;
+    enable = isGui;
     package =
       inputs.plover.packages.${pkgs.stdenv.hostPlatform.system}.plover.withPlugins (ps: [
       ]);
   };
 
   programs.sioyek = {
-    enable = true;
+    enable = isGui;
 
     config = {
       startup_commands = [
@@ -294,7 +295,7 @@ in {
   };
 
   programs.ghostty = {
-    enable = true;
+    enable = isGui;
     # settings = xdg files
     installVimSyntax = true;
     package =

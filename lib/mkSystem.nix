@@ -10,9 +10,11 @@
   user,
   darwin ? false,
   wsl ? false,
+  gui ? true,
 }: let
   isWSL = wsl;
   isLinux = !darwin && !isWSL;
+  isGui = gui;
 
   # The config files for this system.
   hostConfig = ../mod/host/${name}.nix;
@@ -64,6 +66,7 @@ in
         home-manager.useUserPackages = true;
         home-manager.users.${user} = import userHMConfig {
           isWSL = isWSL;
+          isGui = isGui;
           inputs = inputs;
           user = user;
         };
