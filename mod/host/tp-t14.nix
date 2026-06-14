@@ -37,6 +37,15 @@
 
   powerManagement.enable = true;
 
+  services.tlp = {
+    enable = true;
+    settings = {
+      STOP_CHARGE_THRESH_BAT0 = 80;
+    };
+  };
+
+  services.thermald.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = false;
