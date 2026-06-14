@@ -15,14 +15,14 @@
   isLinux = !darwin && !isWSL;
 
   # The config files for this system.
-  hostConfig = ../hosts/${name}.nix;
+  hostConfig = ../mod/host/${name}.nix;
   userOSConfig =
-    ../users/${user}/${
+    ../mod/user/${user}/${
       if darwin
       then "darwin"
       else "nixos"
     }.nix;
-  userHMConfig = ../users/${user}/home.nix;
+  userHMConfig = ../mod/user/${user}/home.nix;
 
   # NixOS vs nix-darwin functions
   systemFunc =

@@ -56,7 +56,7 @@ in {
   };
 
   environment.etc = {
-    "icas".source = ../../mods/icas;
+    "icas".source = ./icas;
   };
 
   system.defaults = {

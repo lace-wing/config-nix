@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    nixpkgs-old = {
-      url = "github:NixOs/nixpkgs/4dadbbb8976a6f291c250f6546b55c2651238c2a";
-    };
-
     darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,11 +46,8 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nixpkgs-old,
     ...
   }: let
-    lib = nixpkgs.lib;
-
     mkSystem = import ./lib/mkSystem.nix {
       inherit nixpkgs overlays inputs;
     };

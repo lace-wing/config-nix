@@ -32,7 +32,7 @@ in {
 
   imports = [
     inputs.plover.homeManagerModules.plover
-    ./neovim.nix
+    ./nvim.nix
     ./starship.nix
     ./zellij.nix
   ];
@@ -134,7 +134,7 @@ in {
       LC_ALL = "en_US.UTF-8";
 
       NIX_CONFIG_DIR = "${config.xdg.configHome}/system";
-      ZSH_CONFIG_DIR = "${NIX_CONFIG_DIR}/users/${user}/zsh";
+      ZSH_CONFIG_DIR = "${NIX_CONFIG_DIR}/mod/user/${user}/zsh";
 
       X_SRC_DIR = "~/src";
       Y_SRC_DIR = "~/srcy";

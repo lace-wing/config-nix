@@ -98,7 +98,7 @@ in {
     EDITOR = "nvim";
     VISUAL = "nvim";
     MANPAGER = "nvim +Man!";
-    NVIM_CONFIG_DIR = "${NIX_CONFIG_DIR}/users/${user}/nvim";
+    NVIM_CONFIG_DIR = "${NIX_CONFIG_DIR}/mod/user/${user}/nvim";
   };
 
   home.shellAliases = with config.home.sessionVariables; {

@@ -7,7 +7,7 @@
   nix.optimise.automatic = true;
 
   environment.etc = {
-    "icas".source = ../../mods/icas;
+    "icas".source = ./icas;
   };
 
   users.users.lacewing = {
