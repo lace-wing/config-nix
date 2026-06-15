@@ -5,6 +5,15 @@
   ...
 }: let
 in {
+  nix-homebrew = {
+    trust = {
+      taps = [
+        "jackielii/tap"
+        "LouisBrunner/valgrind"
+      ];
+    };
+  };
+
   homebrew = {
     taps = [
       "homebrew/core"
