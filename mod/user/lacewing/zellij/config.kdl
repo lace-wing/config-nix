@@ -4,7 +4,7 @@ plugins {
   sb location="file:$XDG_CONFIG_HOME/zellij/plugins/zjstatus.wasm" {
     format_left   " #[fg=green]{session} #[]{mode} "
     format_center "#[fg=green]{tabs}"
-    format_right  "#[fg=green]BAT {command_bat}%"
+    format_right  "#[fg=green]BAT {command_bat}% "
 
     mode_normal     "#[fg=green]NOR"
     mode_locked     "#[fg=bright_red]VER"
@@ -16,9 +16,9 @@ plugins {
     tab_normal_fullscreen "#[fg=bright_green]{index} #[fg=green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
     tab_normal_sync       "#[fg=bright_green]{index} #[fg=green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}{sync_indicator} "
 
-    tab_active            "#[fg=bright_green]{index} #[]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
-    tab_active_fullscreen "#[fg=bright_green]{index} #[]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
-    tab_active_sync       "#[fg=bright_green]{index} #[]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+    tab_active            "#[fg=bright_green]{index} #[fg=bright_green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+    tab_active_fullscreen "#[fg=bright_green]{index} #[fg=bright_green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
+    tab_active_sync       "#[fg=bright_green]{index} #[fg=bright_green]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
 
     tab_rename            "#[fg=bright_green]{index} #[fg=yellow]{name} #[fg=blue]{fullscreen_indicator}{floating_indicator}"
 
