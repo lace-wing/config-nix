@@ -20,6 +20,5 @@
     za = "zellij action";
     zz = "zellij attach --create";
     zm = "zellij_session_layout Main main";
-    zu = "zellij_session_layout Uni uni";
   };
 }
