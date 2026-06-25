@@ -64,7 +64,6 @@ in {
       man-pages-posix
 
       ### Tool ###
-      uim
       _7zz
       outfieldr
       fd
@@ -80,13 +79,15 @@ in {
       imagemagick
       poppler-utils
       pdfpc
-      ffmpeg
       mpv
-      giac
+      octave
       weechat
       chawan
     ]
     ++ fontPackages
+    ++ lib.optionals (!isGui) [
+      uim
+    ]
     ++ lib.optionals isDarwin [
       # This is automatically setup on Linux
       gettext
