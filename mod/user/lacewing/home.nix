@@ -64,6 +64,7 @@ in {
       man-pages-posix
 
       ### Tool ###
+      uim
       _7zz
       outfieldr
       fd
@@ -146,6 +147,10 @@ in {
       # See: https://github.com/NixOS/nixpkgs/issues/390751
       DISPLAY = "nixpkgs-390751";
     };
+
+  home.file = {
+    ".uim".source = ./uim/uim.lisp;
+  };
 
   xdg.configFile = {
     "ghostty/".source = ./ghostty;
