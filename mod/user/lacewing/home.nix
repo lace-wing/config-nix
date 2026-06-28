@@ -1,5 +1,4 @@
 {
-  #TODO add gui/de flag
   isWSL,
   isGui,
   inputs,
@@ -44,6 +43,7 @@ in {
       isDarwin
       isLinux
       isWSL
+      isGui
       ;
   };
 
@@ -78,13 +78,18 @@ in {
       exiftool
       imagemagick
       poppler-utils
-      pdfpc
-      mpv
       octave
       weechat
       chawan
+      sing-box
+      sing-geoip
+      sing-geosite
     ]
     ++ fontPackages
+    ++ lib.optionals isGui [
+      pdfpc
+      mpv
+    ]
     ++ lib.optionals (!isGui) [
       uim
     ]
