@@ -123,6 +123,8 @@ keybinds clear-defaults=true {
     bind "Alt j" { MoveFocus "down"; }
     bind "Alt k" { MoveFocus "up"; }
 
+    bind "Alt q" { CloseFocus; }
+
     // Tab
     bind "Alt 1" { GoToTab 1; }
     bind "Alt 2" { GoToTab 2; }
