@@ -202,9 +202,11 @@ in {
 
   programs.zsh = {
     enable = true;
-    initContent = builtins.readFile ./zsh/zshrc;
+    initContent = lib.concatStringsSep "\n" [
+      (builtins.readFile ./zsh/zshrc)
+      "source ${./zsh/compl.sing-box.zsh}"
+    ];
     profileExtra = lib.concatStringsSep "\n" [
-      # (builtins.readFile ./zsh/zprofile)
       zshFunctions
     ];
   };
