@@ -257,7 +257,7 @@ in {
     enable = true;
     settings = {
       user = {
-        name = "lace-wing";
+        name = "lacewing";
         email = "lycrlsu01@gmail.com";
       };
       diff = {
