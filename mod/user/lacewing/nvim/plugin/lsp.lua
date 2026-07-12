@@ -16,6 +16,7 @@ vim.lsp.enable({
   'fsautocomplete',
   'nixd',
   'elixirls',
+  'hls',
   'zls',
   'nu',
 })

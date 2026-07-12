@@ -72,21 +72,27 @@ in {
       ++ lib.optionals isDarwin [
         vim-macos-ime
       ];
-    extraPackages = with pkgs; [
-      tree-sitter
-      alejandra
-      lua-language-server
-      pyright
-      tinymist
-      roslyn-ls
-      fsautocomplete
-      fantomas
-      nixd
-      elixir-ls
-      zls
-      nasmfmt
-      topiary
-    ];
+    extraPackages = with pkgs;
+      [
+        tree-sitter
+        alejandra
+        lua-language-server
+        pyright
+        tinymist
+        roslyn-ls
+        fsautocomplete
+        fantomas
+        nixd
+        elixir-ls
+        zls
+        nasmfmt
+        topiary
+      ]
+      ++ (with haskellPackages; [
+        haskell-language-server
+        ormolu
+        cabal-fmt
+      ]);
   };
 
   xdg.configFile = {
