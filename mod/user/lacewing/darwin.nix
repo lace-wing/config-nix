@@ -54,6 +54,7 @@ in {
     masApps = {
       Xcode = 497799835;
       Amphetamine = 937984704;
+      Shadowrocket = 932747118;
     };
 
     onActivation = {

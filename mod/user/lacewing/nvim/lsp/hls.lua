@@ -1,3 +1,5 @@
+local fs = require('util.fs')
+
 ---@brief
 ---
 --- https://github.com/haskell/haskell-language-server
@@ -17,7 +19,9 @@ return {
   cmd = { 'haskell-language-server-wrapper', '--lsp' },
   filetypes = { 'haskell', 'lhaskell', 'cabal' },
   root_dir = function(bufnr, on_dir)
-    on_dir(vim.fs.root(bufnr, { 'hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml' }))
+    on_dir(
+      fs.root_glob('hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml')(vim.api.nvim_buf_get_name(bufnr))
+    )
   end,
   settings = {
     haskell = {
