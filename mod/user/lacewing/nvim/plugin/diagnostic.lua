@@ -1,6 +1,19 @@
 local u = require('util')
 local map = u.vim.map
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "text",
+    "gitcommit",
+    "markdown",
+    "typst",
+    "asciidoc"
+  },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
+
 require('trouble').setup({
   auto_preview = false,
 })
