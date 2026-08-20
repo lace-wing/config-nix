@@ -78,6 +78,7 @@ in {
       exiftool
       imagemagick
       poppler-utils
+      ffmpeg
       octave
       weechat
       chawan
