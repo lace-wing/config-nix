@@ -86,6 +86,7 @@ in {
         elixir-ls
         zls
         nasmfmt
+        rust-analyzer
         topiary
       ]
       ++ (with haskellPackages; [
