@@ -1,5 +1,4 @@
-local u = require('util')
-local hi = u.vim.hi
+local hi = require('util.vim').hi
 
 if os.getenv('COLORTERM') == 'kmscon' then
   vim.opt.termguicolors = true

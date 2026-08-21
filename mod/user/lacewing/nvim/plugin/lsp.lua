@@ -1,5 +1,4 @@
-local u = require('util')
-local map = u.vim.map
+local map = require('util.vim').map
 
 vim.diagnostic.config({
   virtual_lines = true,

@@ -1,4 +1,4 @@
-local map = require('util').vim.map
+local map = require('util.vim').map
 
 require('nvim-treesitter').setup({
   highlight = {

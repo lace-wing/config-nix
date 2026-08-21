@@ -16,6 +16,12 @@ M.name = (function()
   return osname or 'Wisdows'
 end)()
 
+M.isunix = vim.fn.has('unix')
+M.islinux = vim.fn.has('linux')
+M.ismac = vim.fn.has('mac')
+M.iswin = vim.fn.has('win32')
+M.iswin64 = vim.fn.has('win64')
+
 M.ext = {
   so = (function()
     if M.name == 'Linux' then

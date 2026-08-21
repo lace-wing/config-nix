@@ -1,5 +1,4 @@
-local u = require('util')
-local map = u.vim.map
+local map = require('util.vim').map
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
