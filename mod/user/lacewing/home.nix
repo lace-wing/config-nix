@@ -10,8 +10,8 @@
   pkgs,
   ...
 }: let
-  isDarwin = pkgs.stdenv.isDarwin;
-  isLinux = pkgs.stdenv.isLinux;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
 
   fontPackages = with pkgs; [
     noto-fonts
@@ -21,7 +21,6 @@
     nerd-fonts.monaspace
     nerd-fonts.iosevka
     fira-mono
-    aptos-fonts
   ];
 
   zshFunctions = builtins.readFile ./zsh/functions.sh;
