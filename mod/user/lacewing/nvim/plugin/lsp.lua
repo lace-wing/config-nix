@@ -18,6 +18,8 @@ vim.lsp.enable({
   'hls',
   'zls',
   'nu',
+  'ts_ls',
+  'kotlin_language_server'
 })
 
 local conform = require('conform')
