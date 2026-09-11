@@ -77,7 +77,7 @@
     nixosConfigurations.tp-t14 = mkSystem "tp-t14" {
       system = "x86_64-linux";
       user = "lacewing";
-      gui = false;
+      gui = true;
     };
   };
 }

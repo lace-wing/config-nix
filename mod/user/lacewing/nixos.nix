@@ -76,6 +76,12 @@
     '';
   };
 
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = false;
+    videoDrivers = ["intel"];
+  };
+
   environment.shellAliases = {
     sus = "systemctl suspend";
   };

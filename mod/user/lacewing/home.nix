@@ -34,6 +34,7 @@ in {
     ./nvim.nix
     ./starship.nix
     ./zellij.nix
+    ./sway.nix
   ];
 
   _module.args = {
