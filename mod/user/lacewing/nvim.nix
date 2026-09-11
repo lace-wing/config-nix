@@ -26,7 +26,7 @@
       };
       aarch64-darwin = {
         postfix = "macos";
-        hash = pkgs.lib.fakeHash;
+        hash = "sha256-hs+eyXSixikfTEa+vfT8LRd0y0fgk00GQ6vKz4xMkWo=";
       };
     };
 

@@ -88,7 +88,7 @@ keybinds clear-defaults=true {
 
     // Tab
     bind "c" { NewTab; SwitchToMode "normal"; }
-    bind "Ctrl q" { CloseTab; SwitchToMode "normal"; }
+    bind "Ctrl Shift q" { CloseTab; SwitchToMode "normal"; }
     bind "Ctrl p" { MoveTab "left"; SwitchToMode "normal"; }
     bind "Ctrl n" { MoveTab "right"; SwitchToMode "normal"; }
 
