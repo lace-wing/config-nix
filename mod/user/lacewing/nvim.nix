@@ -6,6 +6,8 @@
   isDarwin,
   ...
 }: let
+  system = pkgs.stdenv.hostPlatform.system;
+
   vim-macos-ime = pkgs.vimUtils.buildVimPlugin {
     name = "vim-macos-ime";
     src = pkgs.fetchFromGitHub {
@@ -15,6 +17,36 @@
       sha256 = "tQYq/DWb6j+FIAxuA861ct/ym/1y1oROJgk8hqp0rZ0=";
     };
   };
+
+  slang-server = let
+    assets = {
+      x86_64-linux = {
+        postfix = "linux-x64";
+        hash = "sha256-Ka2R8kXxADN8Nc4n26cR1fDqUOvHDnPHjisnQAqHrmI=";
+      };
+      aarch64-darwin = {
+        postfix = "macos";
+        hash = pkgs.lib.fakeHash;
+      };
+    };
+
+    sysAsset = assets.${system} or (throw "Unsupported system: ${system}");
+  in
+    pkgs.stdenv.mkDerivation rec {
+      pname = "slang-server";
+      version = "0.3.0";
+
+      sourceRoot = ".";
+
+      src = pkgs.fetchurl {
+        url = "https://github.com/hudson-trading/slang-server/releases/download/v${version}/slang-server-${sysAsset.postfix}.tar.gz";
+        hash = sysAsset.hash;
+      };
+
+      installPhase = ''
+        install -D ${pname} $out/bin/${pname}
+      '';
+    };
 in {
   programs.neovim = {
     enable = true;
@@ -88,6 +120,7 @@ in {
         nasmfmt
         rust-analyzer
         topiary
+        slang-server
       ]
       ++ (with haskellPackages; [
         haskell-language-server

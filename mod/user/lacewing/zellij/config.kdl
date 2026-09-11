@@ -60,7 +60,7 @@ keybinds clear-defaults=true {
     bind ";" { NewPane "right"; SwitchToMode "normal"; }
     bind "'" { NewPane "down"; SwitchToMode "normal"; }
     bind "\\" { NewPane "stacked"; SwitchToMode "normal"; }
-    bind "q" { CloseFocus; SwitchToMode "normal"; }
+    bind "Ctrl q" { CloseFocus; SwitchToMode "normal"; }
     bind "Ctrl f" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     bind "f" { ToggleFloatingPanes; SwitchToMode "normal"; }
     bind "Shift f" { TogglePaneEmbedOrFloating; SwitchToMode "normal"; }

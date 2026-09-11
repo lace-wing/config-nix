@@ -111,6 +111,11 @@
     git
   ];
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = [];
+  };
+
   nix.settings.experimental-features = "nix-command flakes";
   system.stateVersion = "25.05";
   nixpkgs.hostPlatform = "x86_64-linux";

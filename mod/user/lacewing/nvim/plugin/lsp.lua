@@ -19,7 +19,8 @@ vim.lsp.enable({
   'zls',
   'nu',
   'ts_ls',
-  'kotlin_language_server'
+  'kotlin_language_server',
+  'slang_server'
 })
 
 local conform = require('conform')
