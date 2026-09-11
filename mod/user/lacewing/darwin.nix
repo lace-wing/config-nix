@@ -35,7 +35,7 @@ in {
 
     casks = [
       "lulu"
-      "zen"
+      # "zen"
       "zoom"
       "voov-meeting"
       "legcord"

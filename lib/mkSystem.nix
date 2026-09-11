@@ -65,6 +65,7 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.${user} = import userHMConfig {
+          system = system;
           isWSL = isWSL;
           isGui = isGui;
           inputs = inputs;

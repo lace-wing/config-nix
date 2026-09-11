@@ -1,4 +1,5 @@
 {
+  system,
   isWSL,
   isGui,
   inputs,
@@ -30,6 +31,7 @@ in {
   home.stateVersion = "26.05";
 
   imports = [
+    inputs.zen-browser.homeModules.twilight
     inputs.plover.homeManagerModules.plover
     ./nvim.nix
     ./starship.nix
@@ -284,10 +286,14 @@ in {
     enable = true;
   };
 
+  programs.zen-browser = {
+    enable = isGui;
+  };
+
   programs.plover = {
     enable = isGui;
     package =
-      inputs.plover.packages.${pkgs.stdenv.hostPlatform.system}.plover.withPlugins (ps: [
+      inputs.plover.packages.${system}.plover.withPlugins (ps: [
       ]);
   };
 
