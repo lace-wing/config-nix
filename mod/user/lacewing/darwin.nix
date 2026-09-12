@@ -24,7 +24,8 @@ in {
 
     brews = [
       "skhd-zig"
-      # Does not work on macOS 15
+      # Does not work in macOS 15
+      # Probably does not work on M1
       {
         name = "LouisBrunner/valgrind/valgrind";
         args = [
@@ -35,7 +36,7 @@ in {
 
     casks = [
       "lulu"
-      # "zen"
+      "zen" # keep until hm bug (unexpected argument "cfg") fixed
       "zoom"
       "voov-meeting"
       "legcord"

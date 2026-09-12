@@ -1,4 +1,4 @@
-SWITCH_FLAGS := --show-trace --verbose
+SWITCH_FLAGS := --verbose
 SWITCH_PROFILE := --flake ~/.config/system
 
 OS := $(shell uname -s)

@@ -287,7 +287,11 @@ in {
   };
 
   programs.zen-browser = {
-    enable = isGui;
+    enable =
+      isGui
+      # hm bug, wait for 26.05 backport
+      && !isDarwin;
+    setAsDefaultBrowser = true;
   };
 
   programs.plover = {
