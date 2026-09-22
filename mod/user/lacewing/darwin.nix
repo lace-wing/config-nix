@@ -50,6 +50,7 @@ in {
       "microsoft-excel"
       "steam"
       "calibre"
+      "utm"
     ];
 
     masApps = {
