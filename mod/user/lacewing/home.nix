@@ -162,7 +162,6 @@ in {
   };
 
   xdg.configFile = {
-    "nix/".source = ./nix;
     "ghostty/".source = ./ghostty;
     "aerospace/".source = ./aerospace;
     "skhd/".source = ./skhd;
@@ -263,6 +262,9 @@ in {
       user = {
         name = "lacewing";
         email = "lycrlsu01@gmail.com";
+      };
+      pull = {
+        ff = "only";
       };
       diff = {
         tool = "nvimdiff";
