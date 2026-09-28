@@ -28,6 +28,7 @@ conform.setup({
   formatters_by_ft = {
     nu = { 'topiary' },
     asm = { 'nasmfmt' },
+    systemverilog = { 'verible' },
   },
   formatters = {
     topiary = {
@@ -41,6 +42,10 @@ conform.setup({
       -- nasmfmt does not use stdin
       args = { '$FILENAME' },
       stdin = false,
+    },
+    verible = {
+      command = 'verible-verilog-format',
+      args = { '-' }
     },
   },
   default_format_opts = {

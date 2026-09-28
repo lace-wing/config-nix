@@ -121,6 +121,7 @@ in {
         rust-analyzer
         topiary
         slang-server
+        verible
       ]
       ++ (with haskellPackages; [
         haskell-language-server
