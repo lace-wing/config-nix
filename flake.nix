@@ -66,6 +66,7 @@
         };
       in {
         typst = unstable.typst;
+        tinymist = unstable.tinymist;
 
         zjstatus = zjstatus.packages.${system}.default;
       })
