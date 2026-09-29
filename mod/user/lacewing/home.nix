@@ -207,11 +207,12 @@ in {
     enable = true;
     initContent = lib.concatStringsSep "\n" [
       (builtins.readFile ./zsh/zshrc)
+      zshFunctions
       "source ${./zsh/compl.sing-box.zsh}"
     ];
-    profileExtra = lib.concatStringsSep "\n" [
-      zshFunctions
-    ];
+    profileExtra =
+      lib.concatStringsSep "\n" [
+      ];
   };
 
   programs.nushell = {
