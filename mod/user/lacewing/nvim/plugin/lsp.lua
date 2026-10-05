@@ -16,6 +16,7 @@ vim.lsp.enable({
   'nixd',
   'elixirls',
   'hls',
+  'lean',
   'zls',
   'nu',
   'ts_ls',
