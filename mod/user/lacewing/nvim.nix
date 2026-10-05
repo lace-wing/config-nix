@@ -121,6 +121,9 @@ in {
         rust-analyzer
         topiary
         slang-server
+      ]
+      ++ lib.optionals (!isDarwin) [
+        # aarch64-darwin hash mismatch, in unstable?
         verible
       ]
       ++ (with haskellPackages; [
