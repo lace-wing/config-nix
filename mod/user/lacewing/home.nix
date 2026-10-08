@@ -66,6 +66,7 @@ in {
       man-pages-posix
 
       ### Tool ###
+      sshfs
       _7zz
       outfieldr
       fd
