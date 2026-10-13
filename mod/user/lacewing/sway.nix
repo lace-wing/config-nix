@@ -1,15 +1,13 @@
 {
-  pkgs,
   isLinux,
   isGui,
   ...
 }: let
-  l = pkgs.lib;
 in {
   wayland.windowManager.sway = {
     enable = isLinux && isGui;
 
-    config = rec {
+    config = {
       modifier = "Mod4";
       left = "h";
       down = "j";
@@ -17,6 +15,18 @@ in {
       right = "l";
 
       terminal = "ghostty";
+
+      # floating = {
+      #   criteria = [
+      #     {
+      #       app_id = "ibus-ui-gtk3";
+      #     }
+      #   ];
+      # };
     };
+
+    extraConfig = ''
+      output "*" bg ~/wallpaper fill #232329
+    '';
   };
 }
