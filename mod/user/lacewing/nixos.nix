@@ -28,6 +28,7 @@
       addons = with pkgs; [
         fcitx5-gtk
         fcitx5-anthy
+        qt6Packages.fcitx5-chinese-addons
       ];
 
       waylandFrontend = true;
