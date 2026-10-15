@@ -77,7 +77,6 @@ in {
       ripgrep
       tree
       flamegraph
-      clipboard-jh
       exiftool
       imagemagick
       poppler-utils
