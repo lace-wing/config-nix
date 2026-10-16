@@ -14,15 +14,11 @@ in {
       up = "k";
       right = "l";
 
-      terminal = "ghostty";
+      window = {
+        titlebar = false;
+      };
 
-      # floating = {
-      #   criteria = [
-      #     {
-      #       app_id = "ibus-ui-gtk3";
-      #     }
-      #   ];
-      # };
+      terminal = "ghostty";
     };
 
     extraConfig = ''
