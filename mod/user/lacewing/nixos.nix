@@ -113,6 +113,13 @@
     videoDrivers = ["intel"];
   };
 
+  services.udev = {
+    enable = true;
+    packages = with pkgs; [
+      usb-blaster-udev-rules
+    ];
+  };
+
   environment.shellAliases = {
     sus = "systemctl suspend";
   };
