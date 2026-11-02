@@ -7,6 +7,7 @@ vim.diagnostic.config({
 vim.lsp.inlay_hint.enable()
 
 vim.lsp.enable({
+  'just-lsp',
   'clangd',
   'lua_ls',
   'pyright',

@@ -104,6 +104,7 @@ in {
     ++ lib.optionals (isLinux && !isWSL) [
       valgrind
       below
+      quartus-prime-lite
     ];
 
   #---------------------------------------------------------------------

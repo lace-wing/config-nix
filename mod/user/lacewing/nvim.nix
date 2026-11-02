@@ -107,6 +107,7 @@ in {
     extraPackages = with pkgs;
       [
         tree-sitter
+        just-lsp
         alejandra
         lua-language-server
         pyright
