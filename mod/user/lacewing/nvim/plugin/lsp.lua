@@ -1,7 +1,7 @@
 local map = require('util.vim').map
 
 vim.diagnostic.config({
-  virtual_lines = true,
+  virtual_text = true,
 })
 
 vim.lsp.inlay_hint.enable()
