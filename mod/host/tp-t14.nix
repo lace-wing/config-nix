@@ -103,6 +103,7 @@
     vim
     wget
     git
+    wl-clipboard
   ];
 
   programs.nix-ld = {
